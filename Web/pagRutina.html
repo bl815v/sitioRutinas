@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Tu Rutina</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">    
+        <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='pagRutinaStyle.css')}}">
+    </head>
+    <body>
+        <div class="divPrincipal">
+            <div class="divTitulo">
+                <h1>Hola, {{ data.nombre }}</h1>
+            </div>
+            <div class="divRutina">
+                <h2>Tu rutina para {{ data.objetivo }}</h2>
+                {% if data.rutinas %}
+                    {% for dia, ejercicios in data.rutinas.items() %}
+                        <table class="tablaRutina">
+                        <tr>
+                            <th colspan="2">{{ dia }}</th>
+                        </tr>
+                        {% for ejercicio, repeticiones in ejercicios.items() %}
+                            <tr>
+                                <td>{{ ejercicio }}</td>
+                                <td>{{ repeticiones }}</td>
+                            </tr>
+                        {% endfor %}
+                        </table>
+                    {% endfor %}
+                {% else %}
+                    <p>No hay rutinas disponibles.</p>
+                {% endif %}
+            </div>
+        </div>
+    </body>
+</html>

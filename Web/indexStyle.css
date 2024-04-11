@@ -1,0 +1,98 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+body {
+    font-family: "Roboto", sans-serif;
+}
+.labelStand {
+    font-size: 15px;
+}
+.subtitulo {
+    margin-top: -15px;
+    color: #848d95;
+}
+.divPrincipal {
+    background-color: white;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); 
+    width: calc(80% + 10px);
+    max-width: 100%; 
+    padding-top: 25px;
+    padding-bottom: 25px;
+}
+.divDatos {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0px 1%;
+    max-width: 100%;
+}
+.divNombre, .divId, .divCel, .divMail, .divAltura, .divPeso, .divDias, .divObjetivo {
+    padding: 20px 0px;
+    background-color: white;
+}
+.inputStand {
+    width: 98%;
+    height: 65%;
+    margin-top: 10px;
+    padding: 8px 20px;
+    box-sizing: border-box;
+    border: 2px solid #e4e4e7;
+    border-radius: 4px;
+}
+.inputStand:focus {
+    outline: none;
+    border: 2px solid #838383;
+}
+input[type="number"] {
+    appearance: textfield; 
+    -webkit-appearance: textfield; 
+    -moz-appearance: textfield; 
+}
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    display: none;
+}
+input[type="number"]::-moz-number-spin-box {
+    display: none;
+}
+.divOpcionDias {
+    display: grid;
+    grid-template-columns: repeat(4, auto);
+    gap: 0px 5px;
+    margin-top: 10px;
+}
+.divOpcionDias label {
+    display: flex;
+    width: 230px;
+    padding: 8px 0px;
+}
+.divOpcionObjetivo {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 10px 0px;
+    margin-top: 11px;
+}
+.divOpcionObjetivo label {
+    display: flex;
+    align-items: center;
+    padding: 5px 0px;
+}
+input[type="radio"] {
+    transform: scale(1.5);
+    margin-right: 10px;
+}
+.botonContinuar{
+    width: 100%;
+    padding: 1%;
+    border-radius: 6px;
+    background-color: #18181b;
+    border: none;
+    color: white;
+    text-decoration: none;
+    cursor: pointer;
+}
+.botonContinuar:hover {
+    background-color: #2f2f31;
+}
