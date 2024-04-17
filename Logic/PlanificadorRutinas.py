@@ -3,10 +3,35 @@ from Logic.ListaRutinasP import ListaRutinasP
 from Logic.ListaRutinasM import ListaRutinasM
 
 class PlanificadorRutinas:
+    """Clase para planificar rutinas de ejercicios según el objetivo del usuario.
+
+    Args:
+        user (Usuario): Un objeto Usuario que representa al usuario para el que se planificarán las rutinas.
+
+    Attributes:
+        user (Usuario): El usuario para el que se planificarán las rutinas.
+
+    """
+
     def __init__(self, user):
+        """Inicializa PlanificadorRutinas con el usuario dado.
+
+        Args:
+            user (Usuario): Un objeto Usuario que representa al usuario para el que se planificarán las rutinas.
+
+        """
         self.user = user
 
     def getEjerciciosxDia(self):
+        """Obtiene los ejercicios planificados para cada día según el objetivo del usuario.
+
+        Returns:
+            dict: Un diccionario que relaciona cada día con los ejercicios correspondientes.
+
+        Raises:
+            ValueError: Si el objetivo del usuario no es válido.
+
+        """
         objetivo = self.user.getObjetivo()
         if objetivo == "subir de peso":
             listaRutinas = ListaRutinasG()

@@ -1,7 +1,16 @@
 from Logic.RutinaP import RutinaP
 
 class RutinaPhoenix(RutinaP):
+    """Clase para definir una rutina de ejercicios específica para perder peso, basada en la rutina de Phoenix.
+
+    Esta clase hereda de RutinaP y define una rutina de ejercicios completa para perder peso.
+
+    """
+    
     def __init__(self):
+        """Inicializa RutinaPhoenix con una serie de ejercicios específicos para cada día de la semana.
+
+        """
         super().__init__()     
         self._dia1 = {'Carrera continua o bicicleta estática': '45 minutos',
                         'Abdominales y estiramientos': '10 minutos'}

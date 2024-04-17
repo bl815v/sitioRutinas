@@ -1,7 +1,16 @@
 from Logic.RutinaG import RutinaG
 
 class RutinaLarson(RutinaG):
+    """Clase para definir una rutina de ejercicios específica para ganar peso, basada en la rutina de Larson.
+
+    Esta clase hereda de RutinaG y define una rutina de ejercicios completa para ganar peso.
+
+    """
+
     def __init__(self):
+        """Inicializa RutinaLarson con una serie de ejercicios específicos para cada día de la semana.
+
+        """
         super().__init__() 
 
         self._dia1 = {'Press de pierna': '4 series de 8 repeticiones',

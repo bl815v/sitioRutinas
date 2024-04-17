@@ -2,7 +2,16 @@
 from Logic.RutinaM import RutinaM
 
 class RutinaLiu(RutinaM):
+    """Clase para definir una rutina de ejercicios específica para mantener peso, basada en la rutina de Liu.
+
+    Esta clase hereda de RutinaM y define una rutina de ejercicios completa para mantener peso.
+
+    """
+
     def __init__(self):
+        """Inicializa RutinaLiu con una serie de ejercicios específicos para cada día de la semana.
+
+        """
         super().__init__()
 
         self._dia1 = {'Caminata rápida': '30 minutos', 

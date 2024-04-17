@@ -1,10 +1,22 @@
 from flask import Flask, render_template, request, session
+from flask_mysqldb import MySQL
 
 from Logic.Usuario import Usuario
 from Logic.PlanificadorRutinas import PlanificadorRutinas
+from Data.GestorUsuarios import GestorUsuarios
 
 app=Flask(__name__, template_folder='Web', static_folder='Web')
 app.secret_key = 'clave'
+
+app.config['MYSQL_HOST'] = 'localhost'
+app.config['MYSQL_USER'] = 'root'
+app.config['MYSQL_PASSWORD'] = '#151709Jebl'
+app.config['MYSQL_DB'] = 'pruebagym'
+
+mysql = MySQL(app)
+
+gestordesuarios = GestorUsuarios(mysql)
+
 
 @app.route('/')
 def index():
@@ -36,9 +48,16 @@ def pagRutina():
         'rutinas': planificador.getEjerciciosxDia()
     }
     session.update(data)
-    print(user1.getObjetivo())
+
+    #gestordesuarios.guardarUsuario(user1)
     
     return render_template('pagRutina.html', data=data)
+
+
+@app.route('/usuarios')
+def mostrar_usuarios():
+    usuarios = gestordesuarios.getUsuarios()
+    return render_template('usuariosRegistrados.html', usuarios=usuarios)
 
 
 if __name__=='__main__':
