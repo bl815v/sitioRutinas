@@ -1,4 +1,7 @@
 
+import json
+
+
 class Usuario:
     """Clase para representar a un usuario del gym.
 
@@ -11,6 +14,7 @@ class Usuario:
         peso (float): El peso del usuario en kilogramos.
         dias (list): Una lista que representa los días en los que el usuario entrena.
         objetivo (str): El objetivo del usuario, puede ser "perderPeso", "ganarPeso" o "mantenerPeso".
+        rutina (dict): La rutina asignada para el usuario según su objetivo.
 
     Attributes:
         _nombre (str): El nombre del usuario.
@@ -21,10 +25,11 @@ class Usuario:
         _peso (float): El peso del usuario en kilogramos.
         _dias (list): Una lista que representa los días en los que el usuario entrena.
         _objetivo (str): El objetivo del usuario, puede ser "perderPeso", "ganarPeso" o "mantenerPeso".
+        _rutina (dict): La rutina asignada para el usuario según su objetivo.
 
     """
 
-    def __init__(self, nombre, documento, celular, correo, altura, peso, dias, objetivo):
+    def __init__(self, nombre, documento, celular, correo, altura, peso, dias, objetivo, rutina):
         """Inicializa un objeto Usuario con los datos proporcionados.
 
         Args:
@@ -36,7 +41,8 @@ class Usuario:
             peso (float): El peso del usuario en kilogramos.
             dias (list): Una lista que representa los días en los que el usuario entrena.
             objetivo (str): El objetivo del usuario, puede ser "perderPeso", "ganarPeso" o "mantenerPeso".
-
+            rutina (dict): La rutina asignada para el usuario según su objetivo.
+        
         Raises:
             ValueError: Si el objetivo proporcionado no es válido.
 
@@ -49,6 +55,7 @@ class Usuario:
         self._peso = peso
         self._dias = dias
         self.setObjetivo(objetivo)
+        self.setRutina(rutina)
 
     def getNombre(self):
         """Obtiene el nombre del usuario.
@@ -196,12 +203,37 @@ class Usuario:
             ValueError: Si el objetivo proporcionado no es válido.
 
         """
-        if(objetivo == "perderPeso"):
+        objetivo = objetivo.lower()
+        if objetivo in ["perder peso", "bajar de peso"]:
             objetivo = "bajar de peso"
-        elif(objetivo == "ganarPeso"):
+        elif objetivo in ["ganar peso", "subir de peso"]:
             objetivo = "subir de peso"
-        elif(objetivo == "mantenerPeso"):
+        elif objetivo in ["mantener peso", "mantener tu peso"]:
             objetivo = "mantener tu peso"
         else:
             raise ValueError("Objetivo no válido")
         self._objetivo = objetivo
+
+    def getRutina(self):
+        """Obtiene la rutina del usuario.
+
+        Si la rutina está almacenada como una cadena JSON en el atributo 'rutina', la convierte a un diccionario
+        y la retorna. Si ya es un diccionario, la devuelve tal cual.
+
+        Returns:
+            dict: El diccionario que representa la rutina del usuario.
+        """
+        if isinstance(self._rutina, str):
+            return json.loads(self._rutina)
+        else:
+            return self._rutina
+    
+    
+    def setRutina(self, rutina):
+        """Establece la rutina de ejercicios del usuario.
+
+        Args:
+            rutina (dict): La rutina del usuario.
+
+        """
+        self._rutina = rutina

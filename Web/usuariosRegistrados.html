@@ -5,14 +5,16 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
         <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='usuariosRegistradosStyle.css')}}">    
+        <script src="{{url_for('static', filename='usuariosRegistradosScript.js')}}"></script>
     </head>
     <body>
         <h1>Usuarios Registrados</h1>
+        <a href="/registro">Regístrese aquí</a>
+        <p></p>
+        <a href="/login">Iniciar sesión</a>
         <table>
             <tr>
-                <!--
                 <th>ID</th>
-                -->
                 <th>Nombre</th>
                 <th>Documento</th>
                 <th>Celular</th>
@@ -21,12 +23,11 @@
                 <th>Peso</th>
                 <th>Días</th>
                 <th>Objetivo</th>
+                <th>Rutina</th>
             </tr>
             {% for usuario in usuarios %}
-            <tr>
-                <!--
+            <tr id="fila_{{ usuario[0] }}">
                 <td>{{ usuario[0] }}</td>
-                -->
                 <td>{{ usuario[1] }}</td>
                 <td>{{ usuario[2] }}</td>
                 <td>{{ usuario[3] }}</td>
@@ -35,6 +36,13 @@
                 <td>{{ usuario[6] }}</td>
                 <td>{{ usuario[7] }}</td>
                 <td>{{ usuario[8] }}</td>
+                <td>{{ usuario[9] }}</td>
+                <td>
+                    <button id="bEditar" onclick="editarUsuario('{{ usuario[0] }}')">Editar</button>
+                    <form action="/borrarUsuario/{{ usuario[0] }}" method="POST">
+                        <button type="submit">Borrar</button>
+                    </form>
+                </td>
             </tr>
             {% endfor %}
         </table>

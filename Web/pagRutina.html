@@ -17,7 +17,7 @@
                     {% for dia, ejercicios in data.rutinas.items() %}
                         <table class="tablaRutina">
                         <tr>
-                            <th colspan="2">{{ dia }}</th>
+                            <th colspan="2">Día {{ loop.index }}</th>
                         </tr>
                         {% for ejercicio, repeticiones in ejercicios.items() %}
                             <tr>

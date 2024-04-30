@@ -10,5 +10,6 @@ CREATE TABLE usuarios (
     altura FLOAT NOT NULL,
     peso FLOAT NOT NULL,
     dias TEXT NOT NULL,
-    objetivo VARCHAR(100) NOT NULL
+    objetivo VARCHAR(100) NOT NULL,
+    rutina TEXT NOT NULL
 );

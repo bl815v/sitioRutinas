@@ -33,6 +33,7 @@ class PlanificadorRutinas:
 
         """
         objetivo = self.user.getObjetivo()
+        dias = ["Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado", "Domingo"]
         if objetivo == "subir de peso":
             listaRutinas = ListaRutinasG()
         elif objetivo == "bajar de peso":
@@ -42,4 +43,4 @@ class PlanificadorRutinas:
         else:
             raise ValueError("Objetivo no válido")
         
-        return listaRutinas.getEjerciciosPorDia(self.user.getDias())
+        return listaRutinas.getEjerciciosPorDia(dias) #self.user.getDias() para solo los seleccionados

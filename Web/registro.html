@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Bienvenido!</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">    
+        <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='indexStyle.css')}}">
+    </head>
+    <body>
+        <form class="formulario" method="POST" action="/RegistroExitoso">
+            <div class="divPrincipal">
+                <h1>Gym Di Parziale</h1>
+                <p class="subtitulo">Ingresa tus datos para continuar</p>
+                <div class="divDatos">
+                    <div class="divNombre">
+                        <label class="labelStand">Nombre completo</label><br>
+                        <input type="text" id="nombre" class="inputStand" name="nombre" placeholder="Nombres Apellidos" required>
+                    </div>
+                    <div class="divId">
+                        <label class="labelStand">Documento</label><br>
+                        <input type="text" id="id" class="inputStand" name="id" placeholder="1010345" required>
+                    </div>
+                    <div class="divCel">
+                        <label class="labelStand">Celular</label><br>
+                        <input type="tel" id="cel" class="inputStand" name="cel" placeholder="3054721" required>
+                    </div>
+                    <div class="divMail">
+                        <label class="labelStand">Correo</label><br>
+                        <input type="email" id="mail" class="inputStand" name="mail" placeholder="email@email.com" required>
+                    </div>
+                    <div class="divAltura">
+                        <label class="labelStand">Altura (cm)</label><br>
+                        <input type="number" id="altura" class="inputStand" name="altura" min="1" max="270" step="1" placeholder="175" required>
+                    </div>
+                    <div class="divPeso">
+                        <label class="labelStand">Peso (kg)</label><br>
+                        <input type="number" id="peso" class="inputStand" name="peso" min="1" max="700" step="1" placeholder="60" required>
+                    </div>
+                    <div class="divDias">
+                        <label class="labelStand">Días en los que asistirás</label>
+                        <div class="divOpcionDias">
+                            <input type="checkbox" id="Lunes" class="dias" name="dias" value="Lunes">
+                            <label for="Lunes" class="labelStand">Lunes</label>
+                            <input type="checkbox" id="Martes" class="dias" name="dias" value="Martes">
+                            <label for="Martes" class="labelStand">Martes</label>
+                            <input type="checkbox" id="Miércoles" class="dias" name="dias" value="Miércoles">
+                            <label for="Miércoles" class="labelStand">Miércoles</label>
+                            <input type="checkbox" id="Jueves" class="dias" name="dias" value="Jueves">
+                            <label for="Jueves" class="labelStand">Jueves</label>
+                            <input type="checkbox" id="Viernes" class="dias" name="dias" value="Viernes">
+                            <label for="Viernes" class="labelStand">Viernes</label>
+                            <input type="checkbox" id="Sábado" class="dias" name="dias" value="Sábado">
+                            <label for="Sábado" class="labelStand">Sábado</label>
+                            <input type="checkbox" id="Domingo" class="dias" name="dias" value="Domingo">
+                            <label for="Domingo" class="labelStand">Domingo</label>
+                        </div>
+                    </div>
+                    <div class="divObjetivo">
+                        <label class="labelStand">Tu objetivo</label>
+                        <div class="divOpcionObjetivo">
+                            <input type="radio" id="objetivo" class="perderPeso" name="objetivo" value="perderPeso" required>
+                            <label for="perderPeso" class="labelStand">Perder peso</label>
+                            <input type="radio" id="objetivo" class="mantenerPeso" name="objetivo" value="mantenerPeso">
+                            <label for="mantenerPeso" class="labelStand">Mantener peso</label>
+                            <input type="radio" id="objetivo" class="ganarPeso" name="objetivo" value="ganarPeso">
+                            <label for="ganarPeso" class="labelStand">Ganar peso</label>
+                        </div>
+                    </div>
+                </div>
+            <button type="submit" class="botonContinuar" id="botonContinuar">Continuar</button>
+            <a href="/login">Volver</a>
+            </div>
+        </form>
+    </body>
+</html>
